@@ -1,0 +1,4 @@
+select distinct plays.id, title, IFNULL(sum(reservations.number_of_tickets), 0) as reserver_tickets
+FROM plays LEFT JOIN reservations ON plays.id = reservations.play_id
+GROUP BY plays.id
+ORDER BY reserved_tickets DESC;
